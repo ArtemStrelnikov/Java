@@ -1,0 +1,31 @@
+import java.util.Scanner;
+
+public class Praktik_L2 {
+
+    public static void main(String[] args) {
+
+        Scanner sc = new Scanner(System.in);
+
+        while (true) {
+
+            System.out.println("Geben Sie Ihren Benutzernamen ein?");
+            String name = sc.nextLine();
+
+            if (!name.equals("Tom")) {
+                System.out.println("Der Benutzer wurde nicht gefunden. Bitte geben Sie den korrekten Namen ein.");
+                continue; 
+            }
+
+            System.out.println("Ich muss sicherstellen, dass Sie es sind! Wie alt sind Sie?");
+            int age = sc.nextInt();
+
+            if (age == 31) {
+                System.out.println("Stimmt, der Benutzer mit dem Namen " + name + " ist 31 Jahre alt. Sie sind angemeldet");
+                break; 
+            } else {
+                System.out.println("Falsch. Bitte geben Sie das korrekte Alter ein.");
+                sc.nextLine(); 
+            }
+        }
+    }
+}
