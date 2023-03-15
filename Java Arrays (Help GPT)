@@ -1,0 +1,61 @@
+import java.util.Arrays;
+import java.util.Random;
+import org.apache.commons.lang3.ArrayUtils;
+
+public class TorArrays {
+    public static void main(String[] args) {
+        runRace();
+    }
+
+    public static void runRace() {
+        // Lauf 4*100m
+        double team1_TotalTime = 0;
+        double team2_TotalTime = 0;
+        double team3_TotalTime = 0;
+        double team4_TotalTime = 0;
+        // Staffellauf 00:00
+
+        String[] team1 = {"Manuel", "Lukas", "Anton", "Tom"}; // gerne auf 11 Spieler erweitern
+        String[] team2 = {"Manuel2", "Lukas2", "Anton2", "Tom2"};
+        String[] team3 = {"Manuel3", "Lukas3", "Anton3", "Tom3"};
+        String[] team4 = {"Manuel4", "Lukas4", "Anton4", "Tom4"};
+
+        // Beispiel: Jedes Teammitglied läuft 100 Meter in 9,5-13,0 Sekunden
+        // Die Staffel hat begonnen. Zeigen Sie die Zeit des ersten Laufs von jedem Team an
+     // Weisen Sie die Ergebnisse für jeden Läufer in jedem Team nach dem Zufallsprinzip zu
+        System.out.println("Ergebnis");
+
+        // Weisen Sie die Ergebnisse für jeden Läufer in jedem Team nach dem Zufallsprinzip zu
+        Random rg = new Random();
+        double[] team1_results = new double[4];
+        double[] team2_results = new double[4];
+        double[] team3_results = new double[4];
+        double[] team4_results = new double[4];
+        for (int i = 0; i < 4; i++) {
+            team1_results[i] = 9.5 + (13.0 - 9.5) * rg.nextDouble();
+            team2_results[i] = 9.5 + (13.0 - 9.5) * rg.nextDouble();
+            team3_results[i] = 9.5 + (13.0 - 9.5) * rg.nextDouble();
+            team4_results[i] = 9.5 + (13.0 - 9.5) * rg.nextDouble();
+        }
+
+        // Ergebnisse für jedes Team anzeigen
+        System.out.println("Team 1: " + Arrays.toString(team1_results));
+        System.out.println("Team 2: " + Arrays.toString(team2_results));
+        System.out.println("Team 3: " + Arrays.toString(team3_results));
+        System.out.println("Team 4: " + Arrays.toString(team4_results));
+
+        // Gesamtzeit für jedes Team
+        for (int i = 0; i < 4; i++) {
+            team1_TotalTime += team1_results[i];
+            team2_TotalTime += team2_results[i];
+            team3_TotalTime += team3_results[i];
+            team4_TotalTime += team4_results[i];
+        }
+
+       
+        System.out.println("Team 1 total time: " + team1_TotalTime);
+        System.out.println("Team 2 total time: " + team2_TotalTime);
+        System.out.println("Team 3 total time: " + team3_TotalTime);
+        System.out.println("Team 4 total time: " + team4_TotalTime);
+    }
+}
