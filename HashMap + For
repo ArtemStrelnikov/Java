@@ -1,0 +1,49 @@
+import java.util.HashMap;
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+
+    	HashMap<String, Object> person = new HashMap<>();
+
+        Scanner scanner = new Scanner(System.in);
+
+        String[] keys = {"name", "nachname", "alter", "online"};
+
+        for (String key : keys) {
+            System.out.print("Geben Sie den Wert fur " + key + " ein: ");
+            String value = scanner.nextLine();
+            person.put(key, value);
+        }
+
+        System.out.println("Die folgenden Werte wurden eingegeben:");
+        for (HashMap.Entry<String, Object> entry : person.entrySet()) {
+            System.out.println(entry.getKey() + " : " + entry.getValue());
+        }
+
+        while (true) {
+            System.out.print("Mochten Sie die Daten speichern? (ja/nein): ");
+            String response = scanner.nextLine();
+            if (response.equals("ja")) {
+                System.out.println("Die folgenden Werte wurden gespeichert:");
+                for (HashMap.Entry<String, Object> entry : person.entrySet()) {
+                    System.out.println(entry.getKey() + " : " + entry.getValue());
+                }
+                break;
+            } else if (response.equals("nein")) {
+                person.clear();
+                for (String key : keys) {
+                    System.out.print("Geben Sie den Wert fur " + key + " ein: ");
+                    String value = scanner.nextLine();
+                    person.put(key, value);
+                }
+                System.out.println("Die folgenden Werte wurden eingegeben:");
+                for (HashMap.Entry<String, Object> entry : person.entrySet()) {
+                    System.out.println(entry.getKey() + " : " + entry.getValue());
+                }
+            }
+        }
+
+        System.out.println("Das Programm wird beendet.");
+    }
+}
